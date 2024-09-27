@@ -34,7 +34,12 @@ let db=[
       "filename": "8507716-M.jpg"
     }
   ]
+let izenburua=document.querySelector("td:nth-child(2) > input:nth-child(1)")
+let egilea=document.querySelector("table:nth-child(2) > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(2) > input:nth-child(1)")
+let isbn=document.querySelector("table:nth-child(3) > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(2) > input:nth-child(1)")
+let data= document.querySelector("table:nth-child(4) > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(2) > input:nth-child(1)")
 
-
+izenburua.value=db[i].izenburua
+egilea.value=db[i].egilea
     
 }
