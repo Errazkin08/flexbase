@@ -1,5 +1,6 @@
 window.onload(){
     const WEB="https://covers.openlibrary.org/b/id/"
+    let i =0
 let db=[
     {
       "isbn": "1617293563",
