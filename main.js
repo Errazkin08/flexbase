@@ -1,4 +1,4 @@
-window.onload(){
+window.onload=()=>{
     const WEB="https://covers.openlibrary.org/b/id/"
     let i =0
 let db=[
@@ -34,12 +34,36 @@ let db=[
       "filename": "8507716-M.jpg"
     }
   ]
-let izenburua=document.querySelector("td:nth-child(2) > input:nth-child(1)")
-let egilea=document.querySelector("table:nth-child(2) > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(2) > input:nth-child(1)")
-let isbn=document.querySelector("table:nth-child(3) > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(2) > input:nth-child(1)")
-let data= document.querySelector("table:nth-child(4) > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(2) > input:nth-child(1)")
+let izenburua=document.querySelector("#iz")
+let egilea=document.querySelector("#eg")
+let isbn=document.querySelector("#is")
+let data= document.querySelector("#da")
+let irudia=document.querySelector("#irudi")
+let btnAtzera=document.querySelector("#btnatzera")
+let btnAurrera=document.querySelector("#btnaurrera")
 
 izenburua.value=db[i].izenburua
 egilea.value=db[i].egilea
+isbn.value=db[i].isbn
+data.value=db[i].data
+irudia.src=WEB+db[i].filename
     
+btnAtzera.onclick=()=>{
+    if(i>0) i--
+    else i=db.length-1
+  izenburua.value=db[i].izenburua
+  egilea.value=db[i].egilea
+  isbn.value=db[i].isbn
+  data.value=db[i].data
+  irudia.src=WEB+db[i].filename
+}
+btnAurrera.onclick=()=>{
+  if(i<db.length-1) i++
+  else i=0
+izenburua.value=db[i].izenburua
+egilea.value=db[i].egilea
+isbn.value=db[i].isbn
+data.value=db[i].data
+irudia.src=WEB+db[i].filename
+}
 }
