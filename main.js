@@ -41,29 +41,34 @@ let data= document.querySelector("#da")
 let irudia=document.querySelector("#irudi")
 let btnAtzera=document.querySelector("#btnatzera")
 let btnAurrera=document.querySelector("#btnaurrera")
+let btnBilatu=document.querySelector("#btnBilatu")
 
-izenburua.value=db[i].izenburua
-egilea.value=db[i].egilea
-isbn.value=db[i].isbn
-data.value=db[i].data
-irudia.src=WEB+db[i].filename
-    
-btnAtzera.onclick=()=>{
-    if(i>0) i--
-    else i=db.length-1
+
+let freskatu=()=>{
   izenburua.value=db[i].izenburua
   egilea.value=db[i].egilea
   isbn.value=db[i].isbn
   data.value=db[i].data
   irudia.src=WEB+db[i].filename
 }
+freskatu()
+    
+btnAtzera.onclick=()=>{
+    if(i>0) i--
+    else i=db.length-1
+    freskatu() 
+}
 btnAurrera.onclick=()=>{
   if(i<db.length-1) i++
   else i=0
-izenburua.value=db[i].izenburua
-egilea.value=db[i].egilea
-isbn.value=db[i].isbn
-data.value=db[i].data
-irudia.src=WEB+db[i].filename
+freskatu()
+}
+let aurkitua
+btnBilatu.onclick=()=>{
+  console.log(isbn.value)
+  aurkitua=db.filter(e=>e.isbn==isbn.value)
+  console.log(aurkitua)
+  i=db.findIndex(e=>e.isbn==aurkitua[0].isbn)
+  freskatu()
 }
 }
